@@ -1,101 +1,87 @@
-// this file with store my questions and answers
+// this file will store my questions and answers
 
 const STORE = [
   {
     question: 'Who currently holds the spot for the greatest golfer of all time, based on total tournament victories?',
     answers: [
-      'Jack Nicklaus',
-      'Tiger Woods',
-      'Arnold Palmer',
-      'Sam Snead'
-    ],
-    correctAnswer: 'Sam Snead'
+      {value: 'Jack Nicklaus', isCorrect: false},
+      {value: 'Tiger Woods', isCorrect: false},
+      {value: 'Arnold Palmer', isCorrect: false},
+      {value: 'Sam Snead', isCorrect: true}
+    ]
   }, 
   {
     question: 'What is an albatross?',
     answers: [
-      'Accidentally hitting another player’s ball on the green',
-      'Driving onto the fairway of an adjacent hole',
-      'Shooting a score of three under par on a single hole',
-      'Using the flag as a backboard for your putt'
-    ],
-    correctAnswer: 'Shooting a score of three under par on a single hole'
+      {value: 'Accidentally hitting another player’s ball on the green', isCorrect: false},
+      {value: 'Driving onto the fairway of an adjacent hole', isCorrect: false},
+      {value: 'Shooting a score of three under par on a single hole', isCorrect: true},
+      {value: 'Using the flag as a backboard for your putt', isCorrect: false}
+    ]
   },
   {
     question: 'What is the record for most tour-tournament victories?',
     answers: [
-      '82',
-      '80',
-      '73',
-      '64'
-    ],
-    correctAnswer: '82'
+      {value: '82', isCorrect: true},
+      {value: '80', isCorrect: false},
+      {value: '73', isCorrect: false},
+      {value: '64', isCorrect: false}
+    ]
   },
   {
     question: 'What is the main difference between red and white stakes?',
     answers: [
-      'Red stakes require you to always shoot your second shot from the drop zone. White stakes require it from where your ball went out of bounds',
-      'If you can find your ball in red stakes, you can play it without penalty. White stakes require a re-tee plus an additional penalty stroke',
-      'Red stakes are red, white stakes are white',
-      'There is no difference'
-    ],
-    correctAnswer: 'If you can find your ball in red stakes, you can play it without penalty. White stakes require a re-tee plus an additional penalty stroke'
+      {value: 'Red stakes require you to always shoot your second shot from the drop zone. White stakes require it from where your ball went out of bounds', isCorrect: false},
+      {value: 'If you can find your ball in red stakes, you can play it without penalty. White stakes require a re-tee plus an additional penalty stroke', isCorrect: true},
+      {value: 'Red stakes are red, white stakes are white', isCorrect: false},
+      {value: 'There is no difference', isCorrect: false}
+    ]
   },
   {
     question: 'As of 2019, you are allowed to keep the flag in the hole if desired.',
     answers: [
-      'True',
-      'False'
-    ],
-    correctAnswer: 'True'
+      {value: 'True', isCorrect: true},
+      {value: 'False', isCorrect: false}
   },
   {
     question: 'As of 2018, who holds the record for most Major Tournament victories?',
     answers: [
-      'Jack Nicklaus',
-      'Tiger Woods',
-      'Sam Snead',
-      'Arnold Palmer'
-    ],
-    correctAnswer: 'Jack Nicklaus'
+      {value: 'Jack Nicklaus', isCorrect: true},
+      {value: 'Tiger Woods', isCorrect: false},
+      {value: 'Sam Snead', isCorrect: false},
+      {value: 'Arnold Palmer', isCorrect: false}
   },
   {
     question: 'From where does the modern game of Golf originate?',
     answers: [
-      'England',
-      'Rome',
-      'Greece',
-      'Ireland'
-    ],
-    correctAnswer: 'Ireland'
+      {value: 'England', isCorrect: false},
+      {value: 'Rome', isCorrect: false},
+      {value: 'Greece', isCorrect: false},
+      {value: 'Ireland', isCorrect: true}
   },
   {
     question: 'What does the term ‘Grounding the club’ refer to?',
     answers: [
-      'Touching the sand, water, or ground while taking practice swings in a hazard',
-      'Anytime your clubs touch the ground',
-      'The process of taking divots out of the ground while swinging',
-      'Sending your clubs to their room as their punishment for disobeying'
-    ],
-    correctAnswer: 'Touching the sand, water, or ground while taking practice swings in a hazard'
+      {value: 'Touching the sand, water, or ground while taking practice swings in a hazard', isCorrect: true},
+      {value: 'Anytime your clubs touch the ground', isCorrect: false},
+      {value: 'The process of taking divots out of the ground while swinging', isCorrect: false},
+      {value: 'Sending your clubs to their room as their punishment for disobeying', isCorrect: false}
   },
   {
     question: 'What is a score of par on most courses?',
     answers: [
-      '70',
-      '72',
-      '74',
-      '75'
-    ],
-    correctAnswer: '72'
+      {value: '70', isCorrect: false},
+      {value: '72', isCorrect: true},
+      {value: '74', isCorrect: false},
+      {value: '75', isCorrect: false}
   },
   {
     question: 'What is a golf handicap?',
     answers: [
-      'Shooting from tee boxes closer to the pin',
-      'Lowering par for players who are really good',
-      'An average of your last 20 rounds of golf',
-      'Special wheelchairs people use to get around the course'
+      {value: 'Shooting from tee boxes closer to the pin', isCorrect: false},
+      {value: 'Lowering par for players who are really good', isCorrect: false},
+      {value: 'An average of your last 20 rounds of golf', isCorrect: true},
+      {value: 'Special wheelchairs people use to get around the course', isCorrect: false}
     ]
   }
 ]
