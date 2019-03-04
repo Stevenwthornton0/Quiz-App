@@ -71,3 +71,8 @@ h1 {
   border-radius: 3px;
   text-transform: uppercase;
 }
+
+.questionAndAnswers {
+  display: none;
+  
+}

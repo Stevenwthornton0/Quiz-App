@@ -16,7 +16,7 @@ const STORE = [
       {value: 'Accidentally hitting another player’s ball on the green', isCorrect: false},
       {value: 'Driving onto the fairway of an adjacent hole', isCorrect: false},
       {value: 'Shooting a score of three under par on a single hole', isCorrect: true},
-      {value: 'Using the flag as a backboard for your putt', isCorrect: false}
+      {value: 'A bird', isCorrect: false}
     ]
   },
   {
@@ -41,7 +41,10 @@ const STORE = [
     question: 'As of 2019, you are allowed to keep the flag in the hole if desired.',
     answers: [
       {value: 'True', isCorrect: true},
-      {value: 'False', isCorrect: false}
+      {value: 'False', isCorrect: false},
+      {value: 'Very False', isCorrect: false},
+      {value: 'Extremely False', isCorrect: false}
+    ] 
   },
   {
     question: 'As of 2018, who holds the record for most Major Tournament victories?',
@@ -50,6 +53,7 @@ const STORE = [
       {value: 'Tiger Woods', isCorrect: false},
       {value: 'Sam Snead', isCorrect: false},
       {value: 'Arnold Palmer', isCorrect: false}
+    ]
   },
   {
     question: 'From where does the modern game of Golf originate?',
@@ -58,6 +62,7 @@ const STORE = [
       {value: 'Rome', isCorrect: false},
       {value: 'Greece', isCorrect: false},
       {value: 'Ireland', isCorrect: true}
+    ]
   },
   {
     question: 'What does the term ‘Grounding the club’ refer to?',
@@ -66,6 +71,7 @@ const STORE = [
       {value: 'Anytime your clubs touch the ground', isCorrect: false},
       {value: 'The process of taking divots out of the ground while swinging', isCorrect: false},
       {value: 'Sending your clubs to their room as their punishment for disobeying', isCorrect: false}
+    ]
   },
   {
     question: 'What is a score of par on most courses?',
@@ -74,6 +80,7 @@ const STORE = [
       {value: '72', isCorrect: true},
       {value: '74', isCorrect: false},
       {value: '75', isCorrect: false}
+    ]
   },
   {
     question: 'What is a golf handicap?',
