@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background: url('https://grist.files.wordpress.com/2019/01/gettyimages-157309309.jpg?w=1024&h=576&crop=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    /* filter: brightness(.5); */
+}
+
+header, main {
+    width: 55%;
+    float: right;
+    padding: 20px 20px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.logo {
+    width: 33.33%
+}
+
+.questions {
+    width: 66.66%;
+    float: right;
+    text-align: center;
+    margin-top: 40px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    float: left;
+}
+
+p {
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.startQuiz {
+    text-align: center;
+    font-size: 20px;
+}
+
+h1 {
+    width: 90%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-transform: uppercase;  
+}
+
+.startButton {
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 50px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
