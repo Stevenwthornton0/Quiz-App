@@ -12,7 +12,6 @@
   background-size: cover;
   position: absolute;
   z-index: -1;
-    filter: brightness(.75);
 }
 
 .content-wrapper {
