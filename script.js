@@ -10,7 +10,7 @@ function answersMakeup (arr) {
           <span>${arr[i].value}</span>
         </label>
     `);
-  }
+  };
   return answers.join('');
 }
 
@@ -25,7 +25,7 @@ function generateQuestionElement(item) {
       </fieldset>
     </form>
   </div>
-  `
+  `;
 }
 
 function startQuiz() {
@@ -38,7 +38,7 @@ function startQuiz() {
   });
 }
 
-function renderQuiz() {
+function renderQuestion() {
   $('.questionAndAnswers').html(generateQuestionElement(STORE));
   console.log(generateQuestionElement(STORE));
 }
@@ -63,31 +63,68 @@ function selectAnswer() {
     event.preventDefault();
     console.log('submitted');
     let correct = findCorrectAnswer(true);
-    if (corect === $('input:checked').val()) {
+    if (correct === $('input:checked').val()) {
       correctAnswer();
     } else {
       incorrectAnswer();
     };
-  })
+  });
 }
 
 function correctAnswer() {
-
+  $('.questionAndAnswers').hmtl(`
+    <div class='correctAnswerFeedback'>
+      <p>Correct!</p>
+      <button type=button class='nextButton'>Next</button>
+    </div>
+    `);
+  updateScore();
 }
 
 function incorrectAnswer() {
-  //tells user they got the answer incorrect, and explains the correct answer. Does not add to score but updates question #
+  let correct = findCorrectAnswer(true);
+  console.log(correct);
+  $('.questionAndAnswers').html(`
+    <div class='incorrectAnswerFeedback>
+      <p>That is incorrect</p>
+      <p>The correct answer is<span>${correct}</span></p>
+      <button type=button class='nextButton'>Next</button>
+    </div>
+  `);
 }
 
-function overallScore() {
-  //updates html at end of quiz based on user's score. Allows users to start a new quiz.
+function renderOverallScore(num) {
+  $('.questionAndAnswers').html(`
+    <div class='finalPage'>
+      <h2>Final Score: ${num} out of 10</h2>
+      <button type='button' class='restartButton'>Restart Quiz</button>
+    </div>
+  `)
+}
+
+function renderNextQuestion() {
+  $('main').on('click', '.nextButton', function(event) {
+    if (questionNumber === 10) {
+      renderOverallScore(score)
+    } else {
+      updateQuestionNumber();
+      renderQuestion();
+      selectAnswer();
+  });
+}
+
+function restartQuiz() {
+  $('main').on('click', 'restartButton', function(event) {
+    location.reload();
+  });
 }
 
 function implementQuiz() {
   startQuiz();
-  renderQuiz();
+  renderQuestion();
   selectAnswer();
-  overallScore();
+  renderNextQuestion();
+  restartQuiz();
 }
 
 //calls all functions when the document is ready
