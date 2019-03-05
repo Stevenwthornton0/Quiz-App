@@ -41,9 +41,7 @@ const STORE = [
     question: 'As of 2019, you are allowed to keep the flag in the hole if desired.',
     answers: [
       {value: 'True', isCorrect: true},
-      {value: 'False', isCorrect: false},
-      {value: 'Very False', isCorrect: false},
-      {value: 'Extremely False', isCorrect: false}
+      {value: 'False', isCorrect: false}
     ] 
   },
   {

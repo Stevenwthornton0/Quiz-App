@@ -1,30 +1,31 @@
 let questionNumber = 0;
 let score = 0;
 
+function answersMakeup (arr) {
+  const answers = [];
+  for (let i = 0; i < arr.length; i++) {
+    answers.push(`
+        <label class='answerOptions'>
+          <input type='radio' value='${arr[i].value}' name='answer' required>
+          <span>${arr[i].value}</span>
+        </label>
+    `);
+  }
+  return answers.join('');
+}
+
 function generateQuestionElement(item) {
   return `
   <div class='question-${questionNumber}>
-  <h2>${STORE[questionNumber].question}</h2>
-  <form>
-  <fieldset>
-  <label class='answerOptions'>
-  <input type='radio' value='${STORE[questionNumber].answers[0].value}' name='answer' required>
-  <span>${STORE[questionNumber].answers[0].value}</span>
-  </label>
-  <label class='answerOptions'>
-  <input type='radio' value='${STORE[questionNumber].answers[1].value}' name='answer' required>
-  <span>${STORE[questionNumber].answers[1].value}</span>
-  </label>
-  <label class='answerOptions'>
-  <input type='radio' value='${STORE[questionNumber].answers[2].value}' name='answer' required>
-  <span>${STORE[questionNumber].answers[2].value}</span>
-  </label>
-  <label class='answerOptions'>
-  <input type='radio' value='${STORE[questionNumber].answers[3].value}' name='answer' required>
-  <span>${STORE[questionNumber].answers[3].value}</span>
-  </label>
+    <h2>${STORE[questionNumber].question}</h2>
+    <form class='answerForm>
+      <fieldset>
+        ${answersMakeup(STORE[questionNumber].answers)}
+        <button type='submit' class='submitButton'>Submit</button>
+      </fieldset>
+    </form>
   </div>
-  ` 
+  `
 }
 
 function startQuiz() {
@@ -42,13 +43,36 @@ function renderQuiz() {
   console.log(generateQuestionElement(STORE));
 }
 
-function updateScore () {
+function updateQuestionNumber() {
+  questionNumber++;
+  $('.questionNumber').text(questionNumber+1);
+}
+
+function updateScore() {
   score++;
   $('.score').text(score);
 }
 
+function findCorrectAnswer(boolean) {
+  const correct = STORE[questionNumber].answers.find(answer => answer.isCorrect === boolean);
+  return correct.value;
+}
+
+function selectAnswer() {
+  $('form.answerForm').on('submit', function(event) {
+    event.preventDefault();
+    console.log('submitted');
+    let correct = findCorrectAnswer(true);
+    if (corect === $('input:checked').val()) {
+      correctAnswer();
+    } else {
+      incorrectAnswer();
+    };
+  })
+}
+
 function correctAnswer() {
-  //tells user that they got the answer correct and updates their score and question #
+
 }
 
 function incorrectAnswer() {
@@ -62,8 +86,7 @@ function overallScore() {
 function implementQuiz() {
   startQuiz();
   renderQuiz();
-  correctAnswer();
-  incorrectAnswer();
+  selectAnswer();
   overallScore();
 }
 
