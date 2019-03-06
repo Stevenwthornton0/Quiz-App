@@ -14,19 +14,19 @@ function answersMakeup (arr) {
   return answers.join('');
 }
 
-function generateQuestionElement(item) {
+function generateQuestionElement(arr) {
   return `
   <div class='question-${questionNumber}>
-    <h2>${STORE[questionNumber].question}</h2>
-    <form class='answerForm>
+    <h2>${arr[questionNumber].question}</h2>
+    <form class='answerForm'>
       <fieldset>
-        ${answersMakeup(STORE[questionNumber].answers)}
+        ${answersMakeup((arr[questionNumber]).answers)}
         <button type='submit' class='submitButton'>Submit</button>
       </fieldset>
     </form>
   </div>
   `;
-}
+} 
 
 function startQuiz() {
   $('.startQuiz').on('click', '.startButton', function(event) {
@@ -59,7 +59,7 @@ function findCorrectAnswer(boolean) {
 }
 
 function selectAnswer() {
-  $('form.answerForm').on('submit', function(event) {
+  $('fieldset').on('click', '.submitButton', function(event) {
     event.preventDefault();
     console.log('submitted');
     let correct = findCorrectAnswer(true);
@@ -72,10 +72,10 @@ function selectAnswer() {
 }
 
 function correctAnswer() {
-  $('.questionAndAnswers').hmtl(`
+  $('.questionAndAnswers').html(`
     <div class='correctAnswerFeedback'>
       <p>Correct!</p>
-      <button type=button class='nextButton'>Next</button>
+      <button type='button' class='nextButton'>Next</button>
     </div>
     `);
   updateScore();
@@ -85,10 +85,10 @@ function incorrectAnswer() {
   let correct = findCorrectAnswer(true);
   console.log(correct);
   $('.questionAndAnswers').html(`
-    <div class='incorrectAnswerFeedback>
-      <p>That is incorrect</p>
-      <p>The correct answer is<span>${correct}</span></p>
-      <button type=button class='nextButton'>Next</button>
+    <div class='incorrectAnswerFeedback'>
+      <p>That is incorrect!</p>
+      <p>The correct answer is <span>${correct}</span></p>
+      <button type='button' class='nextButton'>Next</button>
     </div>
   `);
 }
@@ -104,17 +104,18 @@ function renderOverallScore(num) {
 
 function renderNextQuestion() {
   $('main').on('click', '.nextButton', function(event) {
-    if (questionNumber === 10) {
+    if (questionNumber === 9) {
       renderOverallScore(score)
     } else {
       updateQuestionNumber();
       renderQuestion();
       selectAnswer();
+    };
   });
 }
 
 function restartQuiz() {
-  $('main').on('click', 'restartButton', function(event) {
+  $('main').on('click', '.restartButton', function(event) {
     location.reload();
   });
 }
