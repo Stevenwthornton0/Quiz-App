@@ -16,7 +16,7 @@ function answersMakeup (arr) {
 
 function generateQuestionElement(arr) {
   return `
-  <div class='question-${questionNumber}>
+  <div class='question-${questionNumber}'>
     <h2>${arr[questionNumber].question}</h2>
     <form class='answerForm'>
       <fieldset>
@@ -30,9 +30,7 @@ function generateQuestionElement(arr) {
 
 function startQuiz() {
   $('.startQuiz').on('click', '.startButton', function(event) {
-    console.log('startQuiz ran')
     $('.startQuiz').remove();
-    console.log('element removed')
     $('.questionNumber').text(1);
     $('.questionAndAnswers').css('display', 'block');
   });
@@ -40,7 +38,6 @@ function startQuiz() {
 
 function renderQuestion() {
   $('.questionAndAnswers').html(generateQuestionElement(STORE));
-  console.log(generateQuestionElement(STORE));
 }
 
 function updateQuestionNumber() {
@@ -61,7 +58,6 @@ function findCorrectAnswer(boolean) {
 function selectAnswer() {
   $('fieldset').on('click', '.submitButton', function(event) {
     event.preventDefault();
-    console.log('submitted');
     let correct = findCorrectAnswer(true);
     if (correct === $('input:checked').val()) {
       correctAnswer();
@@ -83,7 +79,6 @@ function correctAnswer() {
 
 function incorrectAnswer() {
   let correct = findCorrectAnswer(true);
-  console.log(correct);
   $('.questionAndAnswers').html(`
     <div class='incorrectAnswerFeedback'>
       <p>That is incorrect!</p>
