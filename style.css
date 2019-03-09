@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .background {
@@ -18,23 +19,36 @@
   position: relative;
 }
 
-header, main {
-  width: 55%;
-  float: right;
-  padding: 20px 20px;
+main {
+  /* padding: 20px 20px; */
   color: white;
-  text-shadow: 1px 1px 1px black;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  position: absolute;
+  width: 100%;
 }
 
 .logo {
-  width: 33.33%
+  display: inline-block;
+  padding: 30px;
 }
 
 .questions {
-  width: 66.66%;
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
   float: right;
-  text-align: center;
-  margin-top: 40px;
+  color: white;
+  text-shadow: 1px 1px 30px rgb(150, 150, 150);
+  font-weight: 200;
+  margin-top: 0px;
+}
+
+.questions > p {
+  float: right;
 }
 
 img {
@@ -42,6 +56,7 @@ img {
   height: 150px;
   float: left;
   border-radius: 50%;
+  
 }
 
 p {
@@ -52,27 +67,294 @@ p {
 }
 
 .startQuiz {
+  width: 55%;
   text-align: center;
   font-size: 20px;
+  background: rgb(236, 236, 237, 0.9);
+  border-radius: 5px;
+  margin-top: 170px;
 }
 
 h1 {
   width: 90%;
-  margin-top: 50px;
+  padding-top: 50px;
   margin-left: auto;
   margin-right: auto;
-  text-transform: uppercase;  
+  text-transform: uppercase;
+  text-shadow: 1px 1px 5px rgb(150, 150, 150)  
 }
 
 .startButton {
   padding: 20px;
   font-size: 18px;
-  margin-top: 50px;
+  margin-top: 75px;
+  margin-bottom: 50px;
   border-radius: 3px;
   text-transform: uppercase;
+  background-color: #3BB0B4;
+  border: 1px solid #3BB0B4;
 }
 
 .questionAndAnswers {
   display: none;
+  width: 50%;
+  margin-top: 100px;
+}
+
+.line {
+  display: none;
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+input.submitButton, .answerOptions {
+  border-radius: 3px;
+  padding: 18px;
+  margin-right: auto;
+  margin-left: auto;  
+  width: 82%;
+  margin-top: 10px;
+}
+
+.submitButton {
+  background-color: #00E912;
+  border: 1px solid #00E912;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.answerOptions {
+  font-size: 20px;
+  text-align: center;
+  transition: all 0.3s ease-out;
+}
+
+.answerOptions:nth-child(1) {
+  background-color: #1C66BE
+}
+
+.answerOptions:nth-child(2) {
+  background-color: #317BA7
+}
+
+.answerOptions:nth-child(3) {
+  background-color: #3EA4BE
+}
+
+.answerOptions:nth-child(4) {
+  background-color: #25DFE5
+}
+
+h2 {
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  font-size: 30px;
+  font-weight: 400;
+  /* text-shadow: 1px 1px 40px rgb(150, 150, 150)   */
+}
+
+.answerOptions:hover, .answerOptions:focus {
+  background-color: #E5BA00;
+  cursor: pointer;
+}
+
+.submitButton, .nextButton, .startButton {
+  transition: all 0.3s ease-out;
+}
+
+.submitButton:hover, .nextButton:hover, .startButton:hover, .restartButton:hover, .submitButton:focus, .nextButton:focus, .startButton:focus, .restartButton:focus {
+  background-color: #21232B;
+  border-color: #21232B;
+  color: #E5BA00;
+  cursor: pointer;
+}
+
+input[type='radio'] {
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ffffff;
+    transition: 0.2s all linear;
+    outline: none;
+    position: relative;
+}
+
+input:checked {
+  border: 8px solid white;
+}
+
+.correctAnswerFeedback > p {
+  width: 82%;
+  height: 150px;
+  background-image: linear-gradient(#1C66BE, #3EA4BE);
+  border-radius: 4px;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 200;
+}
+
+.feedbackContainer {
+  width: 82%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(#1C66BE, #3EA4BE);
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 200;
+}
+
+.feedbackContainer > p:nth-of-type(2) {
+  font-size: 22px;
+}
+
+.finalPage > p {
+  width: 82%;
+  height: 150px;
+  background-image: linear-gradient(#1C66BE, #3EA4BE);
+  border-radius: 4px;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.nextButton, .restartButton {
+  width: 82%;
+  padding: 20px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  background-color: #00E912;
+  border: none;
+  border-radius: 4px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1150px) {
+  .startQuiz {
+    width: 80%;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .line {
+    display: none;
+  }
   
+  .questionAndAnswers {
+    width: 100%;
+    margin-top: 125px;
+  }
+
+  .logo {
+    padding: 15px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .startQuiz {
+    width: 90%;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .questions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .questions > p {
+    font-size: 25px;
+    padding: 0px 10px;
+  }
+
+  .feedbackContainer > p {
+    padding: 
+  }
+
+  .questionAndAnswers {
+    margin-top: 175px;
+  }
+
+  .line {
+    border-bottom: 3px white solid;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  .answerOptions {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  input.submitButton, .answerOptions {
+    padding: 12px;
+  }
+
+  .correctAnswerFeedback > p {
+    margin-top: 80px;
+  }
+
+  .finalPage > p {
+    margin-top: 80px;
+    font-size: 25px;
+  }
+
+  .feedbackContainer {
+    margin-top: 80px;
+  }
+
+  .startQuiz {
+    margin-top: 190px;
+  }
+
+  .startButton {
+    margin-top: 50px;
+  }
 }

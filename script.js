@@ -17,11 +17,14 @@ function answersMakeup (arr) {
 function generateQuestionElement(arr) {
   return `
   <div class='question-${questionNumber}'>
-    <h2>${arr[questionNumber].question}</h2>
+    <div class='line'></div>
+    <div class='questionContainer'>
+      <h2>${arr[questionNumber].question}</h2>
+    </div>
     <form class='answerForm'>
       <fieldset>
         ${answersMakeup((arr[questionNumber]).answers)}
-        <button type='submit' class='submitButton'>Submit</button>
+        <input type='submit' class='submitButton' value'Submit'>
       </fieldset>
     </form>
   </div>
@@ -33,6 +36,7 @@ function startQuiz() {
     $('.startQuiz').remove();
     $('.questionNumber').text(1);
     $('.questionAndAnswers').css('display', 'block');
+    $('.background').css('filter', 'brightness(50%)')
   });
 }
 
@@ -56,7 +60,7 @@ function findCorrectAnswer(boolean) {
 }
 
 function selectAnswer() {
-  $('fieldset').on('click', '.submitButton', function(event) {
+  $('form').on('submit', function(event) {
     event.preventDefault();
     let correct = findCorrectAnswer(true);
     if (correct === $('input:checked').val()) {
@@ -69,8 +73,9 @@ function selectAnswer() {
 
 function correctAnswer() {
   $('.questionAndAnswers').html(`
+    <div class='line'></div>
     <div class='correctAnswerFeedback'>
-      <p>Correct!</p>
+      <p>That is Correct!</p>
       <button type='button' class='nextButton'>Next</button>
     </div>
     `);
@@ -80,9 +85,12 @@ function correctAnswer() {
 function incorrectAnswer() {
   let correct = findCorrectAnswer(true);
   $('.questionAndAnswers').html(`
+    <div class='line'></div>
     <div class='incorrectAnswerFeedback'>
-      <p>That is incorrect!</p>
-      <p>The correct answer is <span>${correct}</span></p>
+      <div class='feedbackContainer'>
+        <p>That is incorrect!</p>
+        <p>The correct answer is <span><b>${correct}</b></span></p>
+      </div>  
       <button type='button' class='nextButton'>Next</button>
     </div>
   `);
@@ -91,7 +99,7 @@ function incorrectAnswer() {
 function renderOverallScore(num) {
   $('.questionAndAnswers').html(`
     <div class='finalPage'>
-      <h2>Final Score: ${num} out of 10</h2>
+      <p>Final Score: ${num} out of 10</p>
       <button type='button' class='restartButton'>Restart Quiz</button>
     </div>
   `)
